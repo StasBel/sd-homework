@@ -85,8 +85,7 @@ class Lexer {
                         }
                     }
                 } else {
-                    if (!isOutOfQuote()) charStream.error("Brackets do not match!")
-                    null
+                    if (!isOutOfQuote()) charStream.error("Brackets do not match!"); null
                 }
             }
         }

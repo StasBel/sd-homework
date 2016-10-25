@@ -13,7 +13,7 @@ import java.nio.file.Paths
  * Created by belaevstanislav on 03.10.16.
  */
 
-class Shell(dir: Path = Paths.get(System.getProperty("user.dir"))) {
+class Shell(private val dir: Path = Paths.get(System.getProperty("user.dir"))) {
     private val lexer = Lexer()
     private val context = Context(dir)
     private val parser = Parser()
@@ -82,7 +82,7 @@ class Shell(dir: Path = Paths.get(System.getProperty("user.dir"))) {
         return if (state.commands.hasNext()) execute(state.commands.next()!!.execute(state)) else state
     }
 
-    // debug
+    // TODO delete debug
     @Suppress("unused")
     private fun print(obj: Any) {
         when (obj) {
@@ -119,14 +119,6 @@ class Shell(dir: Path = Paths.get(System.getProperty("user.dir"))) {
 
         // CommandStream -> String
         val result = executing(commands)
-
-        // debug
-        // print(chars)
-        // print(lexemes)
-        // print(commands)
-        // if (result == "") println("yes")
-        // println(result)
-        // print(result)
 
         return result
     }

@@ -8,8 +8,6 @@ import ru.spbau.mit.belyaev.lexer.LexemeStream
  */
 
 abstract class CommandStream(private val lexemes: LexemeStream) : Stream<Command>() {
-    constructor(commandStream: CommandStream) : this(commandStream.lexemes)
-
     fun error(errorMessage: String) {
         lexemes.error(errorMessage)
     }
