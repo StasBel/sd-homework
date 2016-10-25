@@ -1,9 +1,11 @@
 package ru.spbau.mit.belyaev
 
 /**
- * Created by belaevstanislav on 24.09.16.
+ * Created by belaevstanislav on 02.10.16.
  */
 
 fun main(args: Array<String>) {
-    println("Hello, World!")
+    val shell = Shell()
+    print(shell.execute("a=abc | echo \$a"))
+    print(shell.execute("echo \$a s"))
 }
