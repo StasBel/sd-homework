@@ -1,6 +1,6 @@
 package ru.spbau.mit.belyaev.parser
 
-import ru.spbau.mit.belyaev.Context
+import ru.spbau.mit.belyaev.State
 import java.nio.file.Files
 import java.nio.file.InvalidPathException
 import java.util.*
@@ -10,30 +10,29 @@ import java.util.*
  */
 
 sealed class Command(protected val args: List<String>? = null) {
-    //TODO переделать в execute(State): State
-    abstract fun execute(context: Context, pipeOut: String? = null, error: (String) -> Unit): String?
+    abstract fun execute(state: State): State
 
     class Exit() : Command() {
-        override fun execute(context: Context, pipeOut: String?, error: (String) -> Unit): String? = null
+        override fun execute(state: State): State = state.modify(null)
     }
 
     class Cat(args: List<String>?) : Command(args) {
-        override fun execute(context: Context, pipeOut: String?, error: (String) -> Unit): String?
-                = args?.joinToString { s ->
+        override fun execute(state: State): State
+                = state.modify(args?.joinToString { s ->
             Files.readAllLines(
                     try {
-                        context.dir.resolve(s)
+                        state.context.dir.resolve(s)
                     } catch (e: InvalidPathException) {
-                        error("Wrong file!"); null
+                        state.error("Wrong file!"); null
                     }
             ).joinToString() + System.lineSeparator()
         }
-                ?: pipeOut
+                ?: state.pipe)
     }
 
     class Echo(args: List<String>?) : Command(args) {
-        override fun execute(context: Context, pipeOut: String?, error: (String) -> Unit): String?
-                = args?.joinToString(" ", postfix = System.lineSeparator())
+        override fun execute(state: State): State
+                = state.modify(args?.joinToString(" ", postfix = System.lineSeparator()))
     }
 
     class Wc(args: List<String>?) : Command(args) {
@@ -53,29 +52,29 @@ sealed class Command(protected val args: List<String>? = null) {
             )
         }
 
-        override fun execute(context: Context, pipeOut: String?, error: (String) -> Unit): String?
-                = args?.joinToString { s ->
+        override fun execute(state: State): State
+                = state.modify(args?.joinToString { s ->
             try {
-                count(Files.readAllLines(context.dir.resolve(s)).joinToString(System.lineSeparator())).toStr()
+                count(Files.readAllLines(state.context.dir.resolve(s)).joinToString(System.lineSeparator())).toStr()
             } catch (e: Exception) {
-                error("Wrong file!"); ""
+                state.error("Wrong file!"); ""
             }
         }
-                ?: if (pipeOut != null) count(pipeOut).toStr() else null
+                ?: if (state.pipe != null) count(state.pipe!!).toStr() else null)
     }
 
     class Pwd() : Command() {
-        override fun execute(context: Context, pipeOut: String?, error: (String) -> Unit): String?
-                = context.dir.toString()
+        override fun execute(state: State): State
+                = state.modify(state.context.dir.toString())
     }
 
     class Assign(private val id: String, private val what: String) : Command() {
-        override fun execute(context: Context, pipeOut: String?, error: (String) -> Unit): String?
-                = run { context.set(id, what); null }
+        override fun execute(state: State): State
+                = state.modify(run { state.context.set(id, what); null })
     }
 
     class Unknown(private val command: String) : Command() {
-        override fun execute(context: Context, pipeOut: String?, error: (String) -> Unit): String?
-                = context.runBashCommand(command, pipeOut)
+        override fun execute(state: State): State
+                = state.modify(state.context.runBashCommand(command, state.pipe))
     }
 }

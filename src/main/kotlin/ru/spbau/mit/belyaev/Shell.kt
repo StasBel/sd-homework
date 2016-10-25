@@ -76,13 +76,10 @@ class Shell(dir: Path = Paths.get(System.getProperty("user.dir"))) {
         return parser.parseToCommands(lexemes)
     }
 
-    private fun executing(commands: CommandStream): String = execute(commands, null) ?: ""
+    private fun executing(commands: CommandStream): String = execute(State(context, commands)).pipe ?: ""
 
-    private fun execute(commands: CommandStream, pipeOutput: String? = null): String? {
-        return if (commands.hasNext())
-            execute(commands, commands.next()?.execute(context, pipeOutput, { m -> commands.error(m) }))
-        else
-            pipeOutput
+    private fun execute(state: State): State {
+        return if (state.commands.hasNext()) execute(state.commands.next()!!.execute(state)) else state
     }
 
     // debug
