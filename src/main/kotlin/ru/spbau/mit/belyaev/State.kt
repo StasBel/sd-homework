@@ -11,5 +11,5 @@ class State(val context: Context,
             val error: (String) -> Unit = { m -> commands.error(m) },
             var pipe: String? = null
 ) {
-    fun modify(newPipe: String?): State = kotlin.run { pipe = newPipe;this }
+    fun modify(newPipe: String?): State = run { pipe = newPipe;this }
 }

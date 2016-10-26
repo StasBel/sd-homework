@@ -20,18 +20,19 @@ sealed class Command(protected val args: List<String>? = null) {
         const val EXIT_STR = "exit"
     }
 
-    protected val N = System.lineSeparator()!!
-    protected val R = "\r"
+    protected val N = "\n"
 
-    abstract fun execute(state: State): State
+    fun execute(state: State): State = run { state.pipe = executeS(state); state }
+
+    protected abstract fun executeS(state: State): String?
 
     class Exit() : Command() {
-        override fun execute(state: State): State = state.modify(null)
+        override fun executeS(state: State): String? = null
     }
 
     class Cat(args: List<String>?) : Command(args) {
-        override fun execute(state: State): State
-                = state.modify(args?.joinToString { s ->
+        override fun executeS(state: State): String?
+                = args?.joinToString { s ->
             Files.readAllLines(
                     try {
                         state.context.dir.resolve(s)
@@ -40,18 +41,18 @@ sealed class Command(protected val args: List<String>? = null) {
                     }
             ).joinToString(N, postfix = N).let { s -> if (s == N) "" else s }
         }
-                ?: state.pipe)
+                ?: state.pipe
     }
 
     class Echo(args: List<String>?) : Command(args) {
-        override fun execute(state: State): State
-                = state.modify(args?.joinToString(" ", postfix = N) ?: N)
+        override fun executeS(state: State): String?
+                = args?.joinToString(" ", postfix = N) ?: N
     }
 
     class Wc(args: List<String>?) : Command(args) {
         private data class Counter(val lines: Int = 0, val words: Int = 0, val chars: Int = 0)
 
-        private val BETWEEN = '\t'
+        private val BETWEEN = "\t"
 
         private fun Counter.toStr(): String {
             return "${this.lines}$BETWEEN${this.words}$BETWEEN${this.chars}$N"
@@ -66,15 +67,15 @@ sealed class Command(protected val args: List<String>? = null) {
         }
 
         private fun lastLineHasN(path: Path): Boolean {
-            val raf = RandomAccessFile(path.toFile(), "r");
-            val pos = raf.length() - 2;
-            if (pos < 0) return false;
-            raf.seek(pos);
+            val raf = RandomAccessFile(path.toFile(), "r")
+            val pos = raf.length() - 2
+            if (pos < 0) return false
+            raf.seek(pos)
             return raf.read() == N[0].toInt()
         }
 
-        override fun execute(state: State): State
-                = state.modify(args?.joinToString { s ->
+        override fun executeS(state: State): String?
+                = args?.joinToString { s ->
             try {
                 state.context.dir.resolve(s).let { p ->
                     count(Files.readAllLines(p)
@@ -86,21 +87,21 @@ sealed class Command(protected val args: List<String>? = null) {
                 state.error("Wrong file!"); ""
             }
         }
-                ?: if (state.pipe != null) count(state.pipe!!).toStr() else null)
+                ?: if (state.pipe != null) count(state.pipe!!).toStr() else null
     }
 
     class Pwd() : Command() {
-        override fun execute(state: State): State
-                = state.modify(state.context.dir.toAbsolutePath().toString() + N)
+        override fun executeS(state: State): String?
+                = state.context.dir.toAbsolutePath().toString() + N
     }
 
     class Assign(private val id: String, private val what: String) : Command() {
-        override fun execute(state: State): State
-                = state.modify(run { state.context.set(id, what); null })
+        override fun executeS(state: State): String?
+                = run { state.context.set(id, what); null }
     }
 
     class Unknown(private val command: String) : Command() {
-        override fun execute(state: State): State
-                = state.modify(state.context.runBashCommand(command, state.pipe) + N)
+        override fun executeS(state: State): String?
+                = state.context.runBashCommand(command, state.pipe) + N
     }
 }

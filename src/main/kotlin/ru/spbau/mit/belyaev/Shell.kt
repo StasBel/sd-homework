@@ -13,7 +13,7 @@ import java.nio.file.Paths
  * Created by belaevstanislav on 03.10.16.
  */
 
-class Shell(private val dir: Path = Paths.get(System.getProperty("user.dir"))) {
+class Shell(dir: Path = Paths.get(System.getProperty("user.dir"))) {
     private val lexer = Lexer()
     private val context = Context(dir)
     private val parser = Parser()
