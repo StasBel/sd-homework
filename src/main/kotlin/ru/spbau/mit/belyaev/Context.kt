@@ -8,7 +8,7 @@ import java.nio.file.Path
  */
 
 /**
- * Context using to run bash commands, store variables and current dir.
+ * Context using to run bash commands,  store variables and current dir.
  */
 class Context(val dir: Path) {
     companion object {

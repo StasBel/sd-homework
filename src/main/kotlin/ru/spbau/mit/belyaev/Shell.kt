@@ -13,7 +13,7 @@ import java.nio.file.Paths
  * Created by belaevstanislav on 03.10.16.
  */
 
-// TODO продокументировать все классы
+// TODO продокументировать все классы + добавить dokka зависимость в gradle
 
 /**
  * A simple shell with bunch of commands.
