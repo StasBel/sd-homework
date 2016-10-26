@@ -9,7 +9,4 @@ import ru.spbau.mit.belyaev.parser.CommandStream
 class State(val context: Context,
             val commands: CommandStream,
             val error: (String) -> Unit = { m -> commands.error(m) },
-            var pipe: String? = null
-) {
-    fun modify(newPipe: String?): State = run { pipe = newPipe;this }
-}
+            var pipe: String? = null)
