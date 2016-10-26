@@ -9,8 +9,6 @@ import java.util.*
  */
 
 class Parser {
-    private val SPECIAL = arrayOf("cat", "echo", "wc", "pwd", "exit")
-
     fun parseToCommands(lexemes: LexemeStream): CommandStream {
         return object : CommandStream(lexemes) {
             private val args: ArrayList<Lexeme> = ArrayList()
@@ -24,6 +22,8 @@ class Parser {
             private fun dropFirstArgs() = args.drop(1).map(Lexeme::getStr).let { l -> if (l.size == 0) null else l }
 
             private fun joinStack() = stack.joinToString(transform = Lexeme::getStr)
+
+            private fun dealWithUnknown(): Command = Command.Unknown(joinStack())
 
             override fun getNext(): Command? {
                 args.clear()
@@ -46,15 +46,16 @@ class Parser {
                     args.size == 0 && !lexemes.hasNext() -> null
                     args.size == 0 -> run { error("Something wring with the pipes!"); null }
                     isAssign() -> Command.Assign(args[0].getStr(), args[2].getStr())
-                    args[0] is Lexeme.PLAIN_TEXT && args[0].getStr() in SPECIAL ->
-                        when (args[0].getStr()) {
-                            "cat" -> Command.Cat(dropFirstArgs())
-                            "echo" -> Command.Echo(dropFirstArgs())
-                            "wc" -> Command.Wc(dropFirstArgs())
-                            "pwd" -> Command.Pwd()
-                            else -> Command.Exit()
+                    args[0] is Lexeme.PLAIN_TEXT ->
+                        when (args[0].getStr().toLowerCase()) {
+                            Command.CAT_STR -> Command.Cat(dropFirstArgs())
+                            Command.ECHO_STR -> Command.Echo(dropFirstArgs())
+                            Command.WC_STR -> Command.Wc(dropFirstArgs())
+                            Command.PWD_STR -> Command.Pwd()
+                            Command.EXIT_STR -> Command.Exit()
+                            else -> dealWithUnknown()
                         }
-                    else -> Command.Unknown(joinStack())
+                    else -> dealWithUnknown()
                 }
             }
         }

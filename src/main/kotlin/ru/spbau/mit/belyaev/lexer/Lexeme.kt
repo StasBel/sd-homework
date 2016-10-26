@@ -5,8 +5,6 @@ package ru.spbau.mit.belyaev.lexer
  */
 
 sealed class Lexeme(private val str: String = "") {
-    open fun getStr(): String = str
-
     companion object {
         const val SINGLE_QUOTE_CHAR = '\''
         const val DOUBLE_QUOTE_CHAR = '"'
@@ -15,6 +13,8 @@ sealed class Lexeme(private val str: String = "") {
         const val DEFAULT_WHITESPACE_CHAR = ' '
         const val REF_CHAR = '$'
     }
+
+    open fun getStr(): String = str
 
     class SINGLE_QUOTE : Lexeme("$SINGLE_QUOTE_CHAR")
 
