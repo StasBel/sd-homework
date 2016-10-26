@@ -72,15 +72,14 @@ class Shell(dir: Path = Paths.get(System.getProperty("user.dir"))) {
         }
     }
 
-    private fun parsing(lexemes: LexemeStream): CommandStream {
-        return parser.parseToCommands(lexemes)
-    }
+    private fun parsing(lexemes: LexemeStream): CommandStream = parser.parseToCommands(lexemes)
 
-    private fun executing(commands: CommandStream): String = execute(State(context, commands)).pipe ?: ""
+    private fun String.pretty(): String = if (this.isNotEmpty() && this.last() != '\n') this + "\n" else this
 
-    private fun execute(state: State): State {
-        return if (state.commands.hasNext()) execute(state.commands.next()!!.execute(state)) else state
-    }
+    private fun executing(commands: CommandStream): String = execute(State(context, commands)).pipe?.pretty() ?: ""
+
+    private fun execute(state: State): State
+            = if (state.commands.hasNext()) execute(state.commands.next()!!.execute(state)) else state
 
     // TODO delete debug
     @Suppress("unused")

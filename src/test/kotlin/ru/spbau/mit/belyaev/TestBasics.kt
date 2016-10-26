@@ -13,6 +13,15 @@ class TestBasics {
     private val RESOURCES_PATH = Paths.get("src/test/resources/ru/spbau/mit/belyaev")
 
     @Test
+    fun testExample() {
+        val shell = Shell(RESOURCES_PATH)
+        assertEquals("Hello, world!\n", shell.execute("echo \"Hello, world!\""))
+        shell.execute("FILE=example.txt")
+        assertEquals("Some example text\n", shell.execute("cat \$FILE"))
+        assertEquals("\t0\t3\t17\n", shell.execute("cat example.txt | wc"))
+    }
+
+    @Test
     fun testExit() {
         val shell = Shell()
         assertTrue(shell.execute("exit").isEmpty())
@@ -41,6 +50,7 @@ class TestBasics {
         assertEquals("", shell.execute("cat test2.txt"))
         assertEquals("111\n", shell.execute("cat test3.txt"))
         assertEquals("111\n\n", shell.execute("cat test4.txt"))
+        assertEquals("111\n111\n\n", shell.execute("cat test3.txt test4.txt"))
     }
 
     @Test
@@ -54,11 +64,11 @@ class TestBasics {
     @Test
     fun testWc() {
         val shell = Shell(RESOURCES_PATH)
-        assertEquals("0\t83\t515\n", shell.execute("wc test0.txt"))
-        assertEquals("7\t69\t381\n", shell.execute("wc test1.txt"))
-        assertEquals("0\t0\t0\n", shell.execute("wc test2.txt"))
-        assertEquals("0\t1\t3\n", shell.execute("wc test3.txt"))
-        assertEquals("2\t1\t5\n", shell.execute("wc test4.txt"))
+        assertEquals("\t0\t83\t515\n", shell.execute("wc test0.txt"))
+        assertEquals("\t7\t69\t381\n", shell.execute("wc test1.txt"))
+        assertEquals("\t0\t0\t0\n", shell.execute("wc test2.txt"))
+        assertEquals("\t0\t1\t3\n", shell.execute("wc test3.txt"))
+        assertEquals("\t2\t1\t5\n", shell.execute("wc test4.txt"))
     }
 
     @Test
@@ -81,6 +91,23 @@ class TestBasics {
     @Test
     fun testUnknown() {
         val shell = Shell()
-        assertEquals("i386\n", shell.execute("arch"))
+        assertTrue(shell.execute("arch").let { s -> s == "i386\n" || s == "x86_64\n" })
+    }
+
+    @Test
+    fun testQuotes() {
+        val shell = Shell()
+        assertEquals("/bin/bash\n", shell.execute("echo \$0"))
+        assertEquals("/bin/bash\n", shell.execute("echo \"\$0\""))
+        assertEquals("\$0\n", shell.execute("echo '\$0'"))
+        assertEquals("\"\$0\"\n", shell.execute("echo '\"\$0\"'"))
+        assertEquals("'/bin/bash'\n", shell.execute("echo \"'\$0'\""))
+    }
+
+    @Test
+    fun testPipe() {
+        val shell = Shell(RESOURCES_PATH)
+        assertEquals("\t0\t1\t3\n", shell.execute("cat test3.txt | wc"))
+        assertEquals("\t1\t3\t7\n", shell.execute("cat test3.txt | wc | wc"))
     }
 }
