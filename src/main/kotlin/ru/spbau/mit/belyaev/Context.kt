@@ -7,8 +7,13 @@ import java.nio.file.Path
  * Created by belaevstanislav on 03.10.16.
  */
 
+/**
+ * Context using to run bash commands, store variables and current dir.
+ */
 class Context(val dir: Path) {
-    private val BASH_PATH = "/bin/bash"
+    companion object {
+        const val BASH_PATH = "/bin/bash"
+    }
 
     private val vars = mutableMapOf<String, String>()
 
@@ -16,6 +21,13 @@ class Context(val dir: Path) {
         System.getenv().forEach { vars[it.key] = it.value }
     }
 
+    /**
+     * Run a bash command.
+     *
+     * @param command command in string representation
+     * @param input input in string representaion or null
+     * @return bash command output
+     */
     fun runBashCommand(command: String, input: String? = null): String {
         val process = ProcessBuilder(BASH_PATH, "-c", command).start()
         if (input != null) {
@@ -30,9 +42,21 @@ class Context(val dir: Path) {
         return runBashCommand("echo \$$name").dropLast(1).let { s -> if (s.isEmpty()) null else s }
     }
 
+    /**
+     * Assign value to the variable.
+     *
+     * @param name variable name
+     * @param value value
+     */
     fun set(name: String, value: String) {
         vars[name] = value
     }
 
+    /**
+     * Get value of variable or get this from bash env.
+     *
+     * @param name variable name
+     * @return value or null
+     */
     fun get(name: String): String? = vars.getOrElse(name, { -> getBashVar(name) })
 }

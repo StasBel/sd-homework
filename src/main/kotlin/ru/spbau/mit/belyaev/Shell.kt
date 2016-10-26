@@ -13,6 +13,11 @@ import java.nio.file.Paths
  * Created by belaevstanislav on 03.10.16.
  */
 
+// TODO продокументировать все классы
+
+/**
+ * A simple shell with bunch of commands.
+ */
 class Shell(dir: Path = Paths.get(System.getProperty("user.dir"))) {
     private val lexer = Lexer()
     private val context = Context(dir)
@@ -81,7 +86,6 @@ class Shell(dir: Path = Paths.get(System.getProperty("user.dir"))) {
     private fun execute(state: State): State
             = if (state.commands.hasNext()) execute(state.commands.next()!!.execute(state)) else state
 
-    // TODO delete debug
     @Suppress("unused")
     private fun print(obj: Any) {
         when (obj) {
@@ -106,6 +110,12 @@ class Shell(dir: Path = Paths.get(System.getProperty("user.dir"))) {
         }
     }
 
+    /**
+     * Execute command.
+     *
+     * @param input given command in string representation
+     * @return output
+     */
     fun execute(input: String): String {
         // String -> CharStream
         val chars = wrapping(input)
