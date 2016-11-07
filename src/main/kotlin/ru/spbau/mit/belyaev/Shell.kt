@@ -13,8 +13,6 @@ import java.nio.file.Paths
  * Created by belaevstanislav on 03.10.16.
  */
 
-// TODO продокументировать все классы + добавить dokka зависимость в gradle
-
 /**
  * A simple shell with bunch of commands.
  */
@@ -34,7 +32,7 @@ class Shell(dir: Path = Paths.get(System.getProperty("user.dir"))) {
                                 .substituteRefs()
                                 .joinStream()
                 )
-        ).concatenatePlaintTextsAndRefs()
+        ).concatenatePlainTextsAndRefs()
     }
 
     private fun LexemeStream.substituteRefs(): LexemeStream {
@@ -58,21 +56,21 @@ class Shell(dir: Path = Paths.get(System.getProperty("user.dir"))) {
         return result
     }
 
-    private fun LexemeStream.concatenatePlaintTextsAndRefs(): LexemeStream {
+    private fun LexemeStream.concatenatePlainTextsAndRefs(): LexemeStream {
         return object : LexemeStream(this) {
             override fun getNext(): Lexeme? {
                 var result = ""
                 while (run {
-                    val nextLexeme = this@concatenatePlaintTextsAndRefs.peek()
+                    val nextLexeme = this@concatenatePlainTextsAndRefs.peek()
                     nextLexeme is Lexeme.REF || nextLexeme is Lexeme.PLAIN_TEXT
                 }) {
-                    result += this@concatenatePlaintTextsAndRefs.next()!!.getStr()
+                    result += this@concatenatePlainTextsAndRefs.next()!!.getStr()
                 }
 
                 return if (result != "")
                     Lexeme.PLAIN_TEXT(result)
                 else
-                    this@concatenatePlaintTextsAndRefs.next()
+                    this@concatenatePlainTextsAndRefs.next()
             }
         }
     }
@@ -86,6 +84,7 @@ class Shell(dir: Path = Paths.get(System.getProperty("user.dir"))) {
     private fun execute(state: State): State
             = if (state.commands.hasNext()) execute(state.commands.next()!!.execute(state)) else state
 
+    // debug
     @Suppress("unused")
     private fun print(obj: Any) {
         when (obj) {
@@ -116,7 +115,7 @@ class Shell(dir: Path = Paths.get(System.getProperty("user.dir"))) {
      * @param input given command in string representation
      * @return output
      */
-    fun execute(input: String): String {
+    fun execute(input: String): String { // equal to '= executing(parsing(lexing(wrapping(input))))'
         // String -> CharStream
         val chars = wrapping(input)
 

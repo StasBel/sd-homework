@@ -1,4 +1,3 @@
 build/
 .gradle
 .idea
-src/main/kotlin/ru/spbau/mit/belyaev/Main.kt

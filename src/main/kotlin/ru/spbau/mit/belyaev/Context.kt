@@ -8,7 +8,7 @@ import java.nio.file.Path
  */
 
 /**
- * Context using to run bash commands,  store variables and current dir.
+ * Context using to run bash commands, store variables and current dir.
  */
 class Context(val dir: Path) {
     companion object {
@@ -46,14 +46,14 @@ class Context(val dir: Path) {
      * Assign value to the variable.
      *
      * @param name variable name
-     * @param value value
+     * @param value value to assign
      */
     fun set(name: String, value: String) {
         vars[name] = value
     }
 
     /**
-     * Get value of variable or get this from bash env.
+     * Get value of variable or, if null, obtains it from bash environment.
      *
      * @param name variable name
      * @return value or null
