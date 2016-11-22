@@ -1,6 +1,8 @@
 package ru.spbau.mit.belyaev
 
 import java.io.PrintWriter
+import java.io.RandomAccessFile
+import java.nio.file.Files
 import java.nio.file.Path
 
 /**
@@ -19,6 +21,30 @@ class Context(val dir: Path) {
 
     init {
         System.getenv().forEach { vars[it.key] = it.value }
+    }
+
+    private fun lastLineHasN(path: Path): Boolean {
+        val raf = RandomAccessFile(path.toFile(), "r")
+        val pos = raf.length() - 2
+        if (pos < 0) return false
+        raf.seek(pos)
+        return raf.read() == '\n'.toInt()
+    }
+
+    /**
+     * Get content of particular file.
+     *
+     * @param state current execution state using to throw an error
+     * @param file file name
+     * @retunr content of file
+     */
+    fun getContent(state: State, file: String): String {
+        return try {
+            val path = state.context.dir.resolve(file)
+            Files.readAllLines(path).joinToString("\n", postfix = if (lastLineHasN(path)) "\n" else "")
+        } catch (e: Exception) {
+            state.error("Not such file!"); ""
+        }
     }
 
     /**
