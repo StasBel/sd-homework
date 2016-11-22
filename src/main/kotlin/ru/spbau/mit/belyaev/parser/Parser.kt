@@ -2,6 +2,7 @@ package ru.spbau.mit.belyaev.parser
 
 import ru.spbau.mit.belyaev.lexer.Lexeme
 import ru.spbau.mit.belyaev.lexer.LexemeStream
+import ru.spbau.mit.belyaev.parser.command.*
 import java.util.*
 
 /**
@@ -19,11 +20,11 @@ class Parser {
                     && args[1] is Lexeme.ASSIGNMENT
                     && args[2] is Lexeme.PLAIN_TEXT
 
-            private fun dropFirstArgs() = args.drop(1).map(Lexeme::getStr).let { l -> if (l.size == 0) null else l }
+            private fun dropFirstArgs() = args.drop(1).map(Lexeme::getStr).let { l -> if (l.isEmpty()) null else l }
 
             private fun joinStack() = stack.joinToString(transform = Lexeme::getStr)
 
-            private fun dealWithUnknown(): Command = Command.Unknown(joinStack())
+            private fun dealWithUnknown(): Command = Unknown(joinStack())
 
             override fun getNext(): Command? {
                 args.clear()
@@ -45,14 +46,15 @@ class Parser {
                 return when {
                     args.size == 0 && !lexemes.hasNext() -> null
                     args.size == 0 -> run { error("Something wring with the pipes!"); null }
-                    isAssign() -> Command.Assign(args[0].getStr(), args[2].getStr())
+                    isAssign() -> Assign(args[0].getStr(), args[2].getStr())
                     args[0] is Lexeme.PLAIN_TEXT ->
                         when (args[0].getStr().toLowerCase()) {
-                            Command.CAT_STR -> Command.Cat(dropFirstArgs())
-                            Command.ECHO_STR -> Command.Echo(dropFirstArgs())
-                            Command.WC_STR -> Command.Wc(dropFirstArgs())
-                            Command.PWD_STR -> Command.Pwd()
-                            Command.EXIT_STR -> Command.Exit()
+                            Command.CAT_STR -> Cat(dropFirstArgs())
+                            Command.ECHO_STR -> Echo(dropFirstArgs())
+                            Command.WC_STR -> Wc(dropFirstArgs())
+                            Command.PWD_STR -> Pwd()
+                            Command.EXIT_STR -> Exit()
+                            Command.GREP_STR -> Grep(dropFirstArgs())
                             else -> dealWithUnknown()
                         }
                     else -> dealWithUnknown()

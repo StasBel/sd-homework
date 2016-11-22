@@ -1,22 +1,9 @@
-![Diagram](./resources/diagram.png)
+# grep
 
-Есть базовый абстрактный клаcс Stream, от которого наследуются CharStream, LexemeStream и CommandStream, которые используются для обертки для входной строки, разбиения на лексемы и парсинга соответственно.
-Переход между стримами делается в Lexer и Parser, которые используются в Shell вместе c Context.
+## Kotlin cli args parsers analysis
 
-```kotlin
-fun execute(input: String): String {
-    // String -> CharStream
-    val chars = wrapping(input)
-    
-    // CharStream -> LexemeStream
-    val lexemes = lexing(chars)
-
-    // LexemeStream -> CommandStream
-    val commands = parsing(lexemes)
-
-    // CommandStream -> String
-    val result = executing(commands)
-
-    return result
-}
-```
+1. [Klap](https://github.com/sargunster/klap) Пока еще далеко от релиза, да и документации нету вообще никакой.
+2. [karg](https://github.com/jshmrsn/karg) Слишком тяжеловесное и неудобное выставление флагов, аналоги гораздо короче.
+3. [kotlin-cli](https://github.com/leprosus/kotlin-cli) Быстро, удобно, понятно. Но парсит только флаги, а аргументы после вообще никак не достать.
+4. Не хотелось использовать java-аналоги, хотя они и доступны из Kotlin'a из-за java inter-op. Но пришлось.
+5. [commons-cli](https://mvnrepository.com/artifact/commons-cli/commons-cli/1.3.1) Из плюсов можно отметить простоту использования и функционал, более чем достаточный для задания с тремя флагами. Из минусов - некоторую тяжеловесность (по крайней мере - для данного задания).
