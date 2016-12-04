@@ -2,13 +2,14 @@ group 'ru.spbau.mit.belyaev'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.0.4'
+    ext.kotlin_version = '1.0.5'
 
     repositories {
         mavenCentral()
     }
+
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
     }
 }
 
@@ -19,6 +20,5 @@ repositories {
 }
 
 dependencies {
-    //noinspection DifferentStdlibGradleVersion
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
 }
