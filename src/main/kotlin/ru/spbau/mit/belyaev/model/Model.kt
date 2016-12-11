@@ -27,6 +27,33 @@ class Model {
      * @throws ServerCreateException when failed to create a server
      */
     fun createServer(port: Int): Server {
+        /*try {
+            return object : Server {
+                private val future
+                private val server
+
+                init {
+                    future = CompletableFuture<StreamObserver<Proto.Message>>()
+                    server = ServerBuilder.forPort(port)
+                            .addService(object : ChatGrpc.ChatImplBase() {
+                                override fun chat(responseObserver: StreamObserver<Proto.Message>?)
+                                        : StreamObserver<Proto.Message> {
+                                    future.complete(responseObserver)
+                                    return
+                                }
+                            })
+                }
+
+                override fun accept(): ChatSocket {
+
+                }
+
+                override fun close() {
+                    throw UnsupportedOperationException("not implemented")
+                }
+            }
+        }*/
+
         try {
             return object : Server {
                 private val serverSocket = ServerSocket(port)

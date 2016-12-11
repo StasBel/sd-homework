@@ -1,4 +1,4 @@
-package ru.spbau.mit.belyaev.view;
+package ru.spbau.mit.belyaev.message;
 
 import java.awt.*;
 

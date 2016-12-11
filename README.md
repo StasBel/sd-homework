@@ -1,5 +1,13 @@
 # Messenger
 
+## gRPC & Build
+
+Run `./gradlew generateProto` to generate Proto files.
+
+Run `./gradlew biild` to build project.
+
+Run `./gradlew test` to test project.
+
 ## Overall
 
 pattern: MVC

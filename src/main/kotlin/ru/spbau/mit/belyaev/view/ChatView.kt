@@ -1,6 +1,7 @@
 package ru.spbau.mit.belyaev.view
 
 import ru.spbau.mit.belyaev.message.Proto
+import ru.spbau.mit.belyaev.message.VerticalFlowLayout
 import java.awt.BorderLayout
 import java.awt.Color
 import java.awt.Component
