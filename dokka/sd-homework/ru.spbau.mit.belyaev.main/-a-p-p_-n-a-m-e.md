@@ -1,0 +1,9 @@
+[sd-homework](../index.md) / [ru.spbau.mit.belyaev.main](index.md) / [APP_NAME](.)
+
+# APP_NAME
+
+`val APP_NAME: String` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/main/AppInfo.kt#L7)
+
+**Author**
+belaevstanislav
+
