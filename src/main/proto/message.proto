@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_package = "ru.spbau.mit.belyaev.message";
+
+option java_outer_classname = "Proto";
+
+message TextMessage {
+    int64 time = 1;
+    string text = 2;
+}
+
+message UserInfo {
+    string name = 1;
+}
+
+message Typing {
+}
+
+message Message {
+    oneof type {
+        UserInfo userInfo = 1;
+        TextMessage textMessage = 2;
+        Typing typing = 3;
+    }
+}
+
+service Chat {
+    rpc chat(stream Message) returns (stream Message) {
+}
+}

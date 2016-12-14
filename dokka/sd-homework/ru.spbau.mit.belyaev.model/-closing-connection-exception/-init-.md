@@ -1,0 +1,11 @@
+[sd-homework](../../index.md) / [ru.spbau.mit.belyaev.model](../index.md) / [ClosingConnectionException](index.md) / [&lt;init&gt;](.)
+
+# &lt;init&gt;
+
+`ClosingConnectionException()`
+
+Exception to throw when failed to close a connection in [Writer](../-writer/index.md).
+
+**Author**
+belaevstanislav
+
