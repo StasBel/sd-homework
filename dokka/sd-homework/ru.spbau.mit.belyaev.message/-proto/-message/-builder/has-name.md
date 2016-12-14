@@ -1,10 +1,10 @@
-[sd-homework](../../../../index.md) / [ru.spbau.mit.belyaev.message](../../../index.md) / [Proto](../../index.md) / [Message](../index.md) / [Builder](index.md) / [hasName](.)
+[sd-homework](../../../../index.md) / [ru.spbau.mit.belyaev.textMessage](../../../index.md) / [Proto](../../index.md) / [Message](../index.md) / [Builder](index.md) / [hasName](.)
 
 # hasName
 
-`fun hasName(): Boolean` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/message/Proto.java#L587)
+`fun hasName(): Boolean` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/textMessage/Proto.java#L587)
 
-Overrides [MessageOrBuilder.hasName](../../-message-or-builder/has-name.md)
+Overrides [MessageOrBuilder.hasName](../../-textMessage-or-builder/has-name.md)
 
 `required string name = 2;`
 

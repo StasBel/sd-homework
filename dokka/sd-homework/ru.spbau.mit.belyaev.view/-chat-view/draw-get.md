@@ -2,4 +2,4 @@
 
 # drawGet
 
-`fun drawGet(message: `[`Message`](../../ru.spbau.mit.belyaev.message/-proto/-message/index.md)`): Unit` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/view/ChatView.kt#L114)
+`fun drawGet(userInfo: <ERROR CLASS>, textMessage: <ERROR CLASS>): Unit` [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/view/ChatView.kt#L124)

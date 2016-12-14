@@ -8,12 +8,12 @@ import javax.swing.JFrame
 import javax.swing.JPanel
 
 /**
- * @author belaevstanislav
- *
  * Implementing main (and the only) [JFrame] of messenger. Do basic setup
  * and provide method to add views (=[JPanel]'s) to view stack with push
  * and pop methods. The top view is always on the user screen. This can be
  * very useful to easily implement back buttons.
+ *
+ * @author belaevstanislav
  *
  * @property appName name of the messenger app
  *

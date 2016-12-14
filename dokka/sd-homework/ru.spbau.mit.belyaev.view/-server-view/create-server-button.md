@@ -2,4 +2,4 @@
 
 # createServerButton
 
-`val createServerButton: `[`JButton`](http://docs.oracle.com/javase/6/docs/api/javax/swing/JButton.html) [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/view/ServerView.kt#L11)
+`val createServerButton: `[`JButton`](http://docs.oracle.com/javase/6/docs/api/javax/swing/JButton.html) [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/view/ServerView.kt#L11)

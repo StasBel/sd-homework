@@ -10,7 +10,6 @@ import javax.swing.event.DocumentListener
 class MenuControl(control: Control) : AbstractControl<MenuView>(MenuView()) {
     init {
         // set default nickname and update listener
-        control.name = DEFAULT_NICKNAME
         panel.usernameTextField.text = DEFAULT_NICKNAME
         panel.usernameTextField.document.addDocumentListener(
                 object : DocumentListener {

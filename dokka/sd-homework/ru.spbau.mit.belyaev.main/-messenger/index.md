@@ -2,15 +2,12 @@
 
 # Messenger
 
-`class Messenger : Any` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/main/Messenger.kt#L14)
-
-**Author**
-
-belaevstanislav
-
-
+`class Messenger : Any` [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/main/Messenger.kt#L14)
 
 Just a simple class, using for store together and create all components of MVC pattern.
+
+**Author**
+belaevstanislav
 
 ### Constructors
 

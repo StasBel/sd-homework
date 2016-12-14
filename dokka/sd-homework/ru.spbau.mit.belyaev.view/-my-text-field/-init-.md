@@ -3,3 +3,7 @@
 # &lt;init&gt;
 
 `MyTextField(text: String = "")`
+
+**Author**
+belaevstanislav
+

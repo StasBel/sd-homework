@@ -3,3 +3,7 @@
 # &lt;init&gt;
 
 `MyLabel(text: String)`
+
+**Author**
+belaevstanislav
+

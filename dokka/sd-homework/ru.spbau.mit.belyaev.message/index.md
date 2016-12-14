@@ -1,6 +1,6 @@
-[sd-homework](../index.md) / [ru.spbau.mit.belyaev.message](.)
+[sd-homework](../index.md) / [ru.spbau.mit.belyaev.textMessage](.)
 
-## Package ru.spbau.mit.belyaev.message
+## Package ru.spbau.mit.belyaev.textMessage
 
 ### Types
 

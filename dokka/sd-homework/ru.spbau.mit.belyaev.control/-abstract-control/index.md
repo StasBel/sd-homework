@@ -2,16 +2,13 @@
 
 # AbstractControl
 
-`abstract class AbstractControl<out T : `[`AbstractView`](../../ru.spbau.mit.belyaev.view/-abstract-view/index.md)`> : Any` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/control/AbstractControl.kt#L16)
-
-**Author**
-
-belaevstanislav
-
-
+`abstract class AbstractControl<out T : `[`AbstractView`](../../ru.spbau.mit.belyaev.view/-abstract-view/index.md)`> : Any` [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/control/AbstractControl.kt#L16)
 
 Base class for all controls classes with bind to a
 particular view class using genetics constraint.
+
+**Author**
+belaevstanislav
 
 ### Constructors
 
@@ -30,7 +27,7 @@ particular view class using genetics constraint.
 
 | Name | Summary |
 |---|---|
-| [ChatControl](../-chat-control/index.md) | `class ChatControl : AbstractControl<`[`ChatView`](../../ru.spbau.mit.belyaev.view/-chat-view/index.md)`>` |
+| [ChatControl](../-chat-control/index.md) | `class ChatControl : AbstractControl<`[`ChatView`](../../ru.spbau.mit.belyaev.view/-chat-view/index.md)`>, `[`ChatListener`](../../ru.spbau.mit.belyaev.model/-chat-listener/index.md) |
 | [ClientControl](../-client-control/index.md) | `class ClientControl : AbstractControl<`[`ClientView`](../../ru.spbau.mit.belyaev.view/-client-view/index.md)`>` |
 | [MenuControl](../-menu-control/index.md) | `class MenuControl : AbstractControl<`[`MenuView`](../../ru.spbau.mit.belyaev.view/-menu-view/index.md)`>` |
 | [ServerControl](../-server-control/index.md) | `class ServerControl : AbstractControl<`[`ServerView`](../../ru.spbau.mit.belyaev.view/-server-view/index.md)`>` |

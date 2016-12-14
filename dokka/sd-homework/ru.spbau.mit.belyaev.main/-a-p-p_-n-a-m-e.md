@@ -2,7 +2,9 @@
 
 # APP_NAME
 
-`val APP_NAME: String` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/main/AppInfo.kt#L7)
+`val APP_NAME: String` [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/main/AppInfo.kt#L8)
+
+The name of the app.
 
 **Author**
 belaevstanislav

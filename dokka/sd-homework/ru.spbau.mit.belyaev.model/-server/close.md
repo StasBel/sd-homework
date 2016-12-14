@@ -2,10 +2,10 @@
 
 # close
 
-`abstract fun close(): Unit` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/model/Server.kt#L23)
+`abstract fun close(): Unit` [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/model/Server.kt#L33)
 
 Attempting to stop a server.
 
 ### Exceptions
 
-`ClosingServerException` - if error occur while closing
+`ServerCloseException` - if error occur while closing

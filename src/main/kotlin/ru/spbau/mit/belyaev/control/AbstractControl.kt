@@ -3,10 +3,10 @@ package ru.spbau.mit.belyaev.control
 import ru.spbau.mit.belyaev.view.AbstractView
 
 /**
- * @author belaevstanislav
- *
  * Base class for all controls classes with bind to a
  * particular view class using genetics constraint.
+ *
+ * @author belaevstanislav
  *
  * @property t an instance of class T
  *

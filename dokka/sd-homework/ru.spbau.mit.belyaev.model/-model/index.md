@@ -2,15 +2,12 @@
 
 # Model
 
-`class Model : Any` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/model/Model.kt#L15)
+`class Model : Any` [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/model/Model.kt#L21)
+
+A class using for create [Server](../-server/index.md) and [Client](../-client/index.md).
 
 **Author**
-
 belaevstanislav
-
-
-
-A class using for create server and client.
 
 ### Constructors
 
@@ -22,5 +19,5 @@ A class using for create server and client.
 
 | Name | Summary |
 |---|---|
-| [createClient](create-client.md) | `fun createClient(ipAddress: String, port: Int): `[`ChatSocket`](../-chat-socket/index.md)<br>Creates a [ChatSocket](../-chat-socket/index.md) to communicate. |
+| [createClient](create-client.md) | `fun createClient(ipAddress: String, port: Int): `[`Client`](../-client/index.md)<br>Creates a [Client](../-client/index.md) to communicate. |
 | [createServer](create-server.md) | `fun createServer(port: Int): `[`Server`](../-server/index.md)<br>Creates a [Server](../-server/index.md) instance. |

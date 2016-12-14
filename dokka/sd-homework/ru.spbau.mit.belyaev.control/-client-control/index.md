@@ -2,7 +2,7 @@
 
 # ClientControl
 
-`class ClientControl : `[`AbstractControl`](../-abstract-control/index.md)`<`[`ClientView`](../../ru.spbau.mit.belyaev.view/-client-view/index.md)`>` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/control/ClientControl.kt#L11)
+`class ClientControl : `[`AbstractControl`](../-abstract-control/index.md)`<`[`ClientView`](../../ru.spbau.mit.belyaev.view/-client-view/index.md)`>` [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/control/ClientControl.kt#L12)
 
 **Author**
 belaevstanislav

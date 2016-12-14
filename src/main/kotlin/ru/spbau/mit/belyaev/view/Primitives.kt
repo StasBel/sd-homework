@@ -11,16 +11,36 @@ import javax.swing.border.Border
 /**
  * @author belaevstanislav
  */
-
 val DEFAULT_TEXT_DIM = Dimension(200, 20)
+
+/**
+ * @author belaevstanislav
+ */
 val DEFAULT_BUTTON_PREF_DIM = Dimension(0, 40)
+
+/**
+ * @author belaevstanislav
+ */
 val DEFAULT_BUTTON_MAX_DIM = Dimension(100, 40)
 
+/**
+ * @author belaevstanislav
+ */
 val JTEXTFIELD_BORDER: Border = JTextField().border
 
+/**
+ * @author belaevstanislav
+ */
 val TRANSPARENT_GREEN = Color(204, 255, 204)
+
+/**
+ * @author belaevstanislav
+ */
 val TRANSPARENT_RED = Color(255, 204, 204)
 
+/**
+ * @author belaevstanislav
+ */
 class MyLabel(text: String) : JLabel(text, JLabel.CENTER) {
     init {
         alignmentX = Component.CENTER_ALIGNMENT
@@ -29,6 +49,9 @@ class MyLabel(text: String) : JLabel(text, JLabel.CENTER) {
     }
 }
 
+/**
+ * @author belaevstanislav
+ */
 class MyTextField(text: String = "") : JTextField(text) {
     init {
         alignmentX = Component.CENTER_ALIGNMENT
@@ -37,6 +60,9 @@ class MyTextField(text: String = "") : JTextField(text) {
     }
 }
 
+/**
+ * @author belaevstanislav
+ */
 class MyButton(text: String = "") : JButton(text) {
     init {
         alignmentX = Component.CENTER_ALIGNMENT

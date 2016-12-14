@@ -4,5 +4,8 @@
 
 `CommunicateException()`
 
-Exception to throw when bad i/o occur while processing a communication in [ChatSocket](../-chat-socket/index.md).
+Exception to throw when bad i/o occur while processing a communication in [Writer](../-writer/index.md).
+
+**Author**
+belaevstanislav
 

@@ -2,4 +2,4 @@
 
 # name
 
-`var name: String?` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/control/Control.kt#L20)
+`var name: String` [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/control/Control.kt#L21)

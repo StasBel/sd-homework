@@ -22,13 +22,12 @@ class ServerControl(control: Control) : AbstractControl<ServerView>(ServerView()
 
         // create server button
         panel.createServerButton.addActionListener {
-            e ->
             try {
                 val port = panel.portTextField.text.toInt()
                 val server = control.model.createServer(port)
                 control.push(WaitForConnectionControl(control, server))
             } catch (e: NumberFormatException) {
-                logger.log(Level.WARNING, "Failed to parse port int num")
+                logger.log(Level.WARNING, "Failed to parse port int num: ", e)
             } catch (e: ServerCreateException) {
                 logger.log(Level.SEVERE, "Exception: ", e)
             }

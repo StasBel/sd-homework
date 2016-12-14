@@ -2,7 +2,7 @@
 
 # WaitForConnectionView
 
-`class WaitForConnectionView : `[`AbstractView`](../-abstract-view/index.md) [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/view/WaitForConnectionView.kt#L11)
+`class WaitForConnectionView : `[`AbstractView`](../-abstract-view/index.md) [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/view/WaitForConnectionView.kt#L11)
 
 **Author**
 belaevstanislav

@@ -2,15 +2,12 @@
 
 # AbstractView
 
-`abstract class AbstractView : `[`JPanel`](http://docs.oracle.com/javase/6/docs/api/javax/swing/JPanel.html) [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/view/AbstractView.kt#L12)
-
-**Author**
-
-belaevstanislav
-
-
+`abstract class AbstractView : `[`JPanel`](http://docs.oracle.com/javase/6/docs/api/javax/swing/JPanel.html) [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/view/AbstractView.kt#L12)
 
 Just a synonym for JPanel with empty constructor.
+
+**Author**
+belaevstanislav
 
 ### Constructors
 

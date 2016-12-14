@@ -2,7 +2,7 @@
 
 # WaitForConnectionControl
 
-`class WaitForConnectionControl : `[`AbstractControl`](../-abstract-control/index.md)`<`[`WaitForConnectionView`](../../ru.spbau.mit.belyaev.view/-wait-for-connection-view/index.md)`>` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/control/WaitForConnectionControl.kt#L14)
+`class WaitForConnectionControl : `[`AbstractControl`](../-abstract-control/index.md)`<`[`WaitForConnectionView`](../../ru.spbau.mit.belyaev.view/-wait-for-connection-view/index.md)`>` [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/control/WaitForConnectionControl.kt#L15)
 
 **Author**
 belaevstanislav

@@ -2,7 +2,7 @@
 
 # MenuView
 
-`class MenuView : `[`AbstractView`](../-abstract-view/index.md) [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/view/MenuView.kt#L11)
+`class MenuView : `[`AbstractView`](../-abstract-view/index.md) [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/view/MenuView.kt#L11)
 
 **Author**
 belaevstanislav

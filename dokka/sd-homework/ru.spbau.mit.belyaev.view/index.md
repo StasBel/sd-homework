@@ -6,7 +6,7 @@
 
 | Name | Summary |
 |---|---|
-| [AbstractView](-abstract-view/index.md) | `abstract class AbstractView : `[`JPanel`](http://docs.oracle.com/javase/6/docs/api/javax/swing/JPanel.html) |
+| [AbstractView](-abstract-view/index.md) | `abstract class AbstractView : `[`JPanel`](http://docs.oracle.com/javase/6/docs/api/javax/swing/JPanel.html)<br>Just a synonym for JPanel with empty constructor. |
 | [ChatView](-chat-view/index.md) | `class ChatView : `[`AbstractView`](-abstract-view/index.md) |
 | [ClientView](-client-view/index.md) | `class ClientView : `[`AbstractView`](-abstract-view/index.md) |
 | [MenuView](-menu-view/index.md) | `class MenuView : `[`AbstractView`](-abstract-view/index.md) |
@@ -14,8 +14,10 @@
 | [MyLabel](-my-label/index.md) | `class MyLabel : `[`JLabel`](http://docs.oracle.com/javase/6/docs/api/javax/swing/JLabel.html) |
 | [MyTextField](-my-text-field/index.md) | `class MyTextField : `[`JTextField`](http://docs.oracle.com/javase/6/docs/api/javax/swing/JTextField.html) |
 | [ServerView](-server-view/index.md) | `class ServerView : `[`AbstractView`](-abstract-view/index.md) |
-| [VerticalFlowLayout](-vertical-flow-layout/index.md) | `open class VerticalFlowLayout : `[`FlowLayout`](http://docs.oracle.com/javase/6/docs/api/java/awt/FlowLayout.html) |
-| [View](-view/index.md) | `class View : `[`JFrame`](http://docs.oracle.com/javase/6/docs/api/javax/swing/JFrame.html) |
+| [View](-view/index.md) | `class View : `[`JFrame`](http://docs.oracle.com/javase/6/docs/api/javax/swing/JFrame.html)<br>Implementing main (and the only) [JFrame](http://docs.oracle.com/javase/6/docs/api/javax/swing/JFrame.html) of messenger. Do basic setup
+and provide method to add views (=[JPanel](http://docs.oracle.com/javase/6/docs/api/javax/swing/JPanel.html)'s) to view stack with push
+and pop methods. The top view is always on the user screen. This can be
+very useful to easily implement back buttons. |
 | [WaitForConnectionView](-wait-for-connection-view/index.md) | `class WaitForConnectionView : `[`AbstractView`](-abstract-view/index.md) |
 
 ### Properties

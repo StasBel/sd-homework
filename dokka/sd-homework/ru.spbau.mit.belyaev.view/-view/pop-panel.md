@@ -2,7 +2,7 @@
 
 # popPanel
 
-`fun popPanel(): Unit` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/view/View.kt#L53)
+`fun popPanel(): Unit` [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/view/View.kt#L53)
 
 Pop out of the stack top panel, making it disappear from user screen.
 

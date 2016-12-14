@@ -2,7 +2,7 @@
 
 # &lt;init&gt;
 
-`ChatControl(control: `[`Control`](../-control/index.md)`, chatSocket: `[`ChatSocket`](../../ru.spbau.mit.belyaev.model/-chat-socket/index.md)`)`
+`ChatControl(control: `[`Control`](../-control/index.md)`)`
 
 **Author**
 belaevstanislav

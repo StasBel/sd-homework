@@ -2,9 +2,9 @@
 
 # createClient
 
-`fun createClient(ipAddress: String, port: Int): `[`ChatSocket`](../-chat-socket/index.md) [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/model/Model.kt#L68)
+`fun createClient(ipAddress: String, port: Int): `[`Client`](../-client/index.md) [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/model/Model.kt#L95)
 
-Creates a [ChatSocket](../-chat-socket/index.md) to communicate.
+Creates a [Client](../-client/index.md) to communicate.
 
 ### Parameters
 
@@ -14,8 +14,8 @@ Creates a [ChatSocket](../-chat-socket/index.md) to communicate.
 
 ### Exceptions
 
-`AcceptConnectionException` - when failed to accept a connection
+`ClientCreateException` - when failed to accept a connection
 
 **Return**
-[ChatSocket](../-chat-socket/index.md) to communicate
+[Client](../-client/index.md) instance of
 

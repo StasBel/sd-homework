@@ -60,7 +60,7 @@ dokka {
     outputDirectory = "$buildDir/../dokka"
     linkMapping {
         dir = "src/main/kotlin"
-        url = "https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin"
+        url = "https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin"
         suffix = "#L"
     }
     sourceDirs = files('src/main/kotlin')

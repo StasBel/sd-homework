@@ -2,11 +2,11 @@
 
 # getMessage
 
-`fun getMessage(): `[`Message`](../../ru.spbau.mit.belyaev.message/-proto/-message/index.md) [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/model/ChatSocketImpl.kt#L34)
+`fun getMessage(): `[`Message`](../../ru.spbau.mit.belyaev.textMessage/-proto/-textMessage/index.md) [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/model/WriterImpl.kt#L34)
 
-Overrides [ChatSocket.getMessage](../-chat-socket/get-message.md)
+Overrides [ChatSocket.getMessage](../-chat-socket/get-textMessage.md)
 
 **See Also**
 
-[ChatSocket.getMessage](../-chat-socket/get-message.md)
+[ChatSocket.getMessage](../-chat-socket/get-textMessage.md)
 

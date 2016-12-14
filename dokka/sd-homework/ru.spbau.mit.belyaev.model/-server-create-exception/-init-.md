@@ -6,3 +6,6 @@
 
 Exception to throw when failed to create a [Server](../-server/index.md).
 
+**Author**
+belaevstanislav
+

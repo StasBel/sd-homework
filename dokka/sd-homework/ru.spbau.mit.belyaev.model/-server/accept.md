@@ -2,14 +2,14 @@
 
 # accept
 
-`abstract fun accept(): `[`ChatSocket`](../-chat-socket/index.md) [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/model/Server.kt#L16)
+`abstract fun accept(): `[`Writer`](../-writer/index.md) [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/model/Server.kt#L26)
 
 Accept a connection and create chat socket to handle it.
 
 ### Exceptions
 
-`AcceptConnectionException` - if error occur while accepting
+`AcceptConnectionException` - if error occur while accepting connection
 
 **Return**
-class implementing ChatSocket interface
+class implementing [Writer](../-writer/index.md) interface
 

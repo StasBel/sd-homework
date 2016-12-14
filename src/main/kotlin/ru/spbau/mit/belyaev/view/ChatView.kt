@@ -8,6 +8,7 @@ import java.awt.Component
 import java.awt.Dimension
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.Timer
 import javax.swing.*
 
 /**
@@ -16,8 +17,11 @@ import javax.swing.*
 class ChatView : AbstractView() {
     private val messagesPanel: JPanel
     private val messagesScrollPane: JScrollPane
-    private val writeTextArea: JTextArea
+    private val typingLabel: JLabel
 
+    private var typingTimer: Timer = Timer()
+
+    val writeTextArea: JTextArea
     val sendButton: JButton
     val backButton: JButton
 
@@ -31,6 +35,9 @@ class ChatView : AbstractView() {
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER)
         messagesPanel.layout = VerticalFlowLayout(VerticalFlowLayout.TOP, 0, 0, true, false)
         chatPanel.add(messagesScrollPane)
+        // typing label
+        typingLabel = JLabel()
+        chatPanel.add(typingLabel)
         val writeTextPanel = JPanel()
         writeTextPanel.layout = BorderLayout()
         writeTextPanel.minimumSize = Dimension(100, 60)
@@ -58,7 +65,7 @@ class ChatView : AbstractView() {
         add(bottomPanel)
     }
 
-    private abstract class Message(message: Proto.Message, align: String, color: Color) : JPanel() {
+    private abstract class Message(userInfo: Proto.UserInfo, message: Proto.TextMessage, align: String, color: Color) : JPanel() {
         companion object {
             private val simpleDateFormat = SimpleDateFormat("HH:mm:ss z")
         }
@@ -72,7 +79,7 @@ class ChatView : AbstractView() {
             val messagePanel = JPanel()
             messagePanel.layout = BoxLayout(messagePanel, BoxLayout.Y_AXIS)
             // timeAndName text area
-            val timeAndName = JTextArea("${message.name} ${unixTimeToString(message.time)}")
+            val timeAndName = JTextArea("${userInfo.name} ${unixTimeToString(message.time)}")
             timeAndName.font = timeAndName.font.deriveFont(timeAndName.font.size2D / 1.5f)
             timeAndName.isEditable = false
             timeAndName.background = color
@@ -91,9 +98,11 @@ class ChatView : AbstractView() {
         }
     }
 
-    private class MyMessage(message: Proto.Message) : Message(message, BorderLayout.WEST, TRANSPARENT_GREEN)
+    private class MyMessage(userInfo: Proto.UserInfo, textMessage: Proto.TextMessage)
+        : Message(userInfo, textMessage, BorderLayout.WEST, TRANSPARENT_GREEN)
 
-    private class NotMyMessage(message: Proto.Message) : Message(message, BorderLayout.EAST, TRANSPARENT_RED)
+    private class NotMyMessage(userInfo: Proto.UserInfo, textMessage: Proto.TextMessage)
+        : Message(userInfo, textMessage, BorderLayout.EAST, TRANSPARENT_RED)
 
     private fun updateScrollPane() {
         messagesPanel.validate()
@@ -106,16 +115,28 @@ class ChatView : AbstractView() {
         messagesPanel.repaint()
     }
 
-    fun drawSend(message: Proto.Message) {
+    fun drawSend(userInfo: Proto.UserInfo, textMessage: Proto.TextMessage) {
         writeTextArea.text = ""
-        messagesPanel.add(MyMessage(message))
+        messagesPanel.add(MyMessage(userInfo, textMessage))
         updateScrollPane()
     }
 
-    fun drawGet(message: Proto.Message) {
-        messagesPanel.add(NotMyMessage(message))
+    fun drawGet(userInfo: Proto.UserInfo, textMessage: Proto.TextMessage) {
+        messagesPanel.add(NotMyMessage(userInfo, textMessage))
         updateScrollPane()
     }
 
     fun getText(): String = writeTextArea.text
+
+    fun showTyping(userInfo: Proto.UserInfo) {
+        typingLabel.text = "${userInfo.name} is writing to you..."
+        typingTimer.cancel()
+        typingTimer.purge()
+        typingTimer = Timer()
+        typingTimer.schedule(object : TimerTask() {
+            override fun run() {
+                SwingUtilities.invokeLater { typingLabel.text = "" }
+            }
+        }, 3000)
+    }
 }

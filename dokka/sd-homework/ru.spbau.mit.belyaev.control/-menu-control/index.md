@@ -2,7 +2,7 @@
 
 # MenuControl
 
-`class MenuControl : `[`AbstractControl`](../-abstract-control/index.md)`<`[`MenuView`](../../ru.spbau.mit.belyaev.view/-menu-view/index.md)`>` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/control/MenuControl.kt#L10)
+`class MenuControl : `[`AbstractControl`](../-abstract-control/index.md)`<`[`MenuView`](../../ru.spbau.mit.belyaev.view/-menu-view/index.md)`>` [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/control/MenuControl.kt#L10)
 
 **Author**
 belaevstanislav

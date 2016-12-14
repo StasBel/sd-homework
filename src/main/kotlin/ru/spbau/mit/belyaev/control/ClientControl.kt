@@ -1,6 +1,7 @@
 package ru.spbau.mit.belyaev.control
 
 import ru.spbau.mit.belyaev.model.AcceptConnectionException
+import ru.spbau.mit.belyaev.model.ClientCreateException
 import ru.spbau.mit.belyaev.view.ClientView
 import java.util.logging.Level
 import java.util.logging.Logger
@@ -25,14 +26,17 @@ class ClientControl(control: Control) : AbstractControl<ClientView>(ClientView()
 
         // connect button
         panel.connectButton.addActionListener {
-            e ->
             try {
                 val ipAddress = panel.ipAddressTextField.text
                 val port = panel.portTextField.text.toInt()
-                val chatSocket = control.model.createClient(ipAddress, port)
-                control.push(ChatControl(control, chatSocket))
+                val client = control.model.createClient(ipAddress, port)
+                val chatControl = ChatControl(control)
+                chatControl.startChat(client.connect(chatControl))
+                control.push(chatControl)
             } catch (e: NumberFormatException) {
-                logger.log(Level.WARNING, "Failed to parse port int num")
+                logger.log(Level.WARNING, "Failed to parse port int num: ", e)
+            } catch (e: ClientCreateException) {
+                logger.log(Level.SEVERE, "Exception: ", e)
             } catch (e: AcceptConnectionException) {
                 logger.log(Level.SEVERE, "Exception: ", e)
             }

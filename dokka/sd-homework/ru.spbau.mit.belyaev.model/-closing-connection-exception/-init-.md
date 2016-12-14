@@ -4,5 +4,8 @@
 
 `ClosingConnectionException()`
 
-Exception to throw when failed to close a connection in [ChatSocket](../-chat-socket/index.md).
+Exception to throw when failed to close a connection in [Writer](../-writer/index.md).
+
+**Author**
+belaevstanislav
 

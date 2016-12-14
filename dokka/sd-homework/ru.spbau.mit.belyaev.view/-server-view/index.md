@@ -2,7 +2,7 @@
 
 # ServerView
 
-`class ServerView : `[`AbstractView`](../-abstract-view/index.md) [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/view/ServerView.kt#L8)
+`class ServerView : `[`AbstractView`](../-abstract-view/index.md) [(source)](https://github.com/StasBel/sd-homework/blob/gRPC/src/main/kotlin/ru/spbau/mit/belyaev/view/ServerView.kt#L8)
 
 **Author**
 belaevstanislav

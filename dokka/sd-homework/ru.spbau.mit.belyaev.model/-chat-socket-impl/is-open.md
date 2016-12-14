@@ -2,7 +2,7 @@
 
 # isOpen
 
-`fun isOpen(): Boolean` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/model/ChatSocketImpl.kt#L27)
+`fun isOpen(): Boolean` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/model/WriterImpl.kt#L27)
 
 Overrides [ChatSocket.isOpen](../-chat-socket/is-open.md)
 

@@ -4,5 +4,8 @@
 
 `AcceptConnectionException()`
 
-Exception to throw when failed to create a [ChatSocket](../-chat-socket/index.md).
+Exception to throw when failed to create a [Writer](../-writer/index.md).
+
+**Author**
+belaevstanislav
 

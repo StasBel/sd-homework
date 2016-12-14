@@ -2,11 +2,11 @@
 
 # sendMessage
 
-`fun sendMessage(message: `[`Message`](../../ru.spbau.mit.belyaev.message/-proto/-message/index.md)`): Unit` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/model/ChatSocketImpl.kt#L49)
+`fun sendMessage(textMessage: `[`Message`](../../ru.spbau.mit.belyaev.textMessage/-proto/-textMessage/index.md)`): Unit` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/model/WriterImpl.kt#L49)
 
-Overrides [ChatSocket.sendMessage](../-chat-socket/send-message.md)
+Overrides [ChatSocket.sendMessage](../-chat-socket/send-textMessage.md)
 
 **See Also**
 
-[ChatSocket.sendMessage](../-chat-socket/send-message.md)
+[ChatSocket.sendMessage](../-chat-socket/send-textMessage.md)
 

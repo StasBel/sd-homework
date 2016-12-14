@@ -3,3 +3,7 @@
 # &lt;init&gt;
 
 `MyButton(text: String = "")`
+
+**Author**
+belaevstanislav
+

@@ -1,15 +1,15 @@
-[sd-homework](../../index.md) / [ru.spbau.mit.belyaev.message](../index.md) / [Proto](.)
+[sd-homework](../../index.md) / [ru.spbau.mit.belyaev.textMessage](../index.md) / [Proto](.)
 
 # Proto
 
-`class Proto : Any` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/message/Proto.java#L6)
+`class Proto : Any` [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/textMessage/Proto.java#L6)
 
 ### Types
 
 | Name | Summary |
 |---|---|
-| [Message](-message/index.md) | `class Message : GeneratedMessage, `[`MessageOrBuilder`](-message-or-builder/index.md)<br>Protobuf type `Message` |
-| [MessageOrBuilder](-message-or-builder/index.md) | `interface MessageOrBuilder : MessageOrBuilder` |
+| [Message](-textMessage/index.md) | `class Message : GeneratedMessage, `[`MessageOrBuilder`](-textMessage-or-builder/index.md)<br>Protobuf type `Message` |
+| [MessageOrBuilder](-textMessage-or-builder/index.md) | `interface MessageOrBuilder : MessageOrBuilder` |
 
 ### Functions
 

@@ -5,9 +5,9 @@ import ru.spbau.mit.belyaev.model.Model
 import ru.spbau.mit.belyaev.view.View
 
 /**
- * @author belaevstanislav
- *
  * Just a simple class, using for store together and create all components of MVC pattern.
+ *
+ * @author belaevstanislav
  *
  * @constructor takes no arguments
  */

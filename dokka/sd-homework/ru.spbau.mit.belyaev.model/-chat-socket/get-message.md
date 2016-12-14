@@ -2,14 +2,14 @@
 
 # getMessage
 
-`abstract fun getMessage(): `[`Message`](../../ru.spbau.mit.belyaev.message/-proto/-message/index.md) [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/model/ChatSocket.kt#L25)
+`abstract fun getMessage(): `[`Message`](../../ru.spbau.mit.belyaev.textMessage/-proto/-textMessage/index.md) [(source)](https://github.com/StasBel/sd-homework/blob/InstantMessenger/src/main/kotlin/ru/spbau/mit/belyaev/model/Writer.kt#L25)
 
-Waiting for a message to drawGet and then parse it from stream.
+Waiting for a textMessage to drawGet and then parse it from streamObserver.
 
 ### Exceptions
 
 `CommunicateException` - if error occur while data getting
 
 **Return**
-message to drawGet
+textMessage to drawGet
 
