@@ -14,7 +14,7 @@ Run `./gradlew dokka` to make doc-file.
 
 pattern: MVC
 
-[Некое подобие документации](https://github.com/StasBel/sd-homework/blob/InstantMessenger/dokka/sd-homework/index.md)
+[Некое подобие документации](https://github.com/StasBel/sd-homework/blob/gRPC/dokka/sd-homework/index.md)
 
 ## Model
 
