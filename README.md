@@ -1,1 +1,1 @@
-# Reversi game diagram
+# Structure
