@@ -25,7 +25,7 @@ class Context(val dir: Path) {
      * Run a bash command.
      *
      * @param command command in string representation
-     * @param input input in string representaion or null
+     * @param input input in string representation or null
      * @return bash command output
      */
     fun runBashCommand(command: String, input: String? = null): String {
