@@ -2,6 +2,12 @@
 
 ## Package ru.spbau.mit.belyaev
 
+### Types
+
+| Name | Summary |
+|---|---|
+| [Params](-params/index.md) | `data class Params : Any` |
+
 ### Functions
 
 | Name | Summary |

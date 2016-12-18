@@ -2,7 +2,7 @@ group 'ru.spbau.mit.belyaev'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.0.5-2'
+    ext.kotlin_version = '1.0.5-3'
     ext.dokka_version = '0.9.10'
 
     repositories {
@@ -28,6 +28,7 @@ dependencies {
     compile group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: '1.0.5-2'
     compile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit', version: '1.0.5-2'
+    compile 'com.diogonunes:JCDP:2.0.1'
 }
 
 dokka {
@@ -40,3 +41,5 @@ dokka {
     }
     sourceDirs = files('src/main/kotlin')
 }
+
+build.finalizedBy(dokka)

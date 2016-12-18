@@ -8,4 +8,4 @@
 
 ### Index
 
-[All Types](alltypes.md)
+[All Types](alltypes/index.md)
