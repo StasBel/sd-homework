@@ -4,9 +4,9 @@ import ru.spbau.mit.belyaev.State
 import java.util.*
 
 /**
- * Created by belaevstanislav on 22.11.16.
+ * Command using getting number of chars, words and lines of strings in execution buffer.
+ * @author belaevstanislav
  */
-
 class Wc(private val args: List<String>?) : Command() {
     private data class Counter(val lines: Int = 0, val words: Int = 0, val chars: Int = 0)
 

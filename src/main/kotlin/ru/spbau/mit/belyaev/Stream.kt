@@ -3,11 +3,8 @@ package ru.spbau.mit.belyaev
 import ru.spbau.mit.belyaev.debug.Notification
 
 /**
- * Created by belaevstanislav on 06.10.16.
- */
-
-/**
  * Provide an inteface for stream of objects.
+ * @author belaevstanislav
  */
 abstract class Stream<T> {
     private var current: T? = null

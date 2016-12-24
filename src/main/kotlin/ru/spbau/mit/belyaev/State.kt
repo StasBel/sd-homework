@@ -3,11 +3,8 @@ package ru.spbau.mit.belyaev
 import ru.spbau.mit.belyaev.parser.CommandStream
 
 /**
- * Created by belaevstanislav on 25.10.16.
- */
-
-/**
  * State of executing using in shell.
+ * @author belaevstanislav
  */
 data class State(val context: Context,
                  val commands: CommandStream,

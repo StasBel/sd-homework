@@ -6,11 +6,8 @@ import java.nio.file.Files
 import java.nio.file.Path
 
 /**
- * Created by belaevstanislav on 03.10.16.
- */
-
-/**
  * Context using to run bash commands, store variables and current dir.
+ * @author belaevstanislav
  */
 class Context(val dir: Path) {
     companion object {
@@ -36,7 +33,7 @@ class Context(val dir: Path) {
      *
      * @param state current execution state using to throw an error
      * @param file file name
-     * @retunr content of file
+     * @return content of file
      */
     fun getContent(state: State, file: String): String {
         return try {

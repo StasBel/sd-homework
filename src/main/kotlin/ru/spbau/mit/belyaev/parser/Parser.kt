@@ -6,10 +6,15 @@ import ru.spbau.mit.belyaev.parser.command.*
 import java.util.*
 
 /**
- * Created by belaevstanislav on 22.10.16.
+ * Class implementing logic of splitting a stream of lexeme to stream of commands.
+ * @author belaevstanislav
  */
-
 class Parser {
+    /**
+     * Splitting a stream of lexemes to stream of commands.
+     * @param lexemes a stream of lexemes to split
+     * @return a stream of commands
+     */
     fun parseToCommands(lexemes: LexemeStream): CommandStream {
         return object : CommandStream(lexemes) {
             private val args: ArrayList<Lexeme> = ArrayList()

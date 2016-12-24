@@ -3,9 +3,9 @@ package ru.spbau.mit.belyaev.lexer
 import ru.spbau.mit.belyaev.wrapper.CharStream
 
 /**
- * Created by belaevstanislav on 02.10.16.
+ * Class implementing logic of splitting a stream of char to stream of lexemes.
+ * @author belaevstanislav
  */
-
 class Lexer {
     private val SPECIAL_CHARS = arrayOf(Lexeme.SINGLE_QUOTE_CHAR, Lexeme.DOUBLE_QUOTE_CHAR, Lexeme.PIPE_CHAR,
             Lexeme.ASSIGNMENT_CHAR, Lexeme.REF_CHAR)
@@ -32,6 +32,11 @@ class Lexer {
     private fun isSpecial(char: Char) = char in SPECIAL_CHARS
     private fun isFirstInArg(char: Char) = char.isLetterOrDigit() || char in FIRST_IN_ARG_CHARS
 
+    /**
+     * Splitting a stream of char to stream of lexemes.
+     * @param charStream a stream of char to split
+     * @return a stream of lexemes
+     */
     fun splitToLexemes(charStream: CharStream): LexemeStream {
         return object : LexemeStream(charStream) {
             private var openQuote: Char? = null

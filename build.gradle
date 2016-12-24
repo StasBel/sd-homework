@@ -2,7 +2,7 @@ group 'ru.spbau.mit.belyaev'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.0.4'
+    ext.kotlin_version = '1.0.5-3'
     ext.dokka_version = '0.9.9'
 
     repositories {
@@ -24,9 +24,9 @@ repositories {
 
 dependencies {
     compile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: '1.0.4'
-    compile group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: '1.0.4'
-    compile group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit', version: '1.0.4'
-    compile group: 'org.jetbrains.kotlin', name: 'kotlin-runtime', version: '1.0.4'
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: '1.0.5-3'
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: '1.0.5-3'
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit', version: '1.0.5-3'
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-runtime', version: '1.0.5-3'
     compile group: 'commons-cli', name: 'commons-cli', version: '1.3.1'
 }

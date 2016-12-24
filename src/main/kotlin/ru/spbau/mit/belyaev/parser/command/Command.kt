@@ -3,9 +3,9 @@ package ru.spbau.mit.belyaev.parser.command
 import ru.spbau.mit.belyaev.State
 
 /**
- * Created by belaevstanislav on 22.10.16.
+ * Abstract class using for all commands using in shell.
+ * @author belaevstanislav
  */
-
 abstract class Command {
     companion object {
         const val CAT_STR = "cat"

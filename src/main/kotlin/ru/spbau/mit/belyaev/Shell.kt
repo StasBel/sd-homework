@@ -10,11 +10,8 @@ import java.nio.file.Path
 import java.nio.file.Paths
 
 /**
- * Created by belaevstanislav on 03.10.16.
- */
-
-/**
  * A simple shell with bunch of commands.
+ * @author belaevstanislav
  */
 class Shell(dir: Path = Paths.get(System.getProperty("user.dir"))) {
     private val lexer = Lexer()

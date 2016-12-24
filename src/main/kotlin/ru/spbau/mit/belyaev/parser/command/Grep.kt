@@ -6,9 +6,9 @@ import org.apache.commons.cli.Options
 import ru.spbau.mit.belyaev.State
 
 /**
- * Created by belaevstanislav on 22.11.16.
+ * Reproducing grep command find string matches regular expression.
+ * @author belaevstanislav
  */
-
 class Grep(private val args: List<String>?) : Command() {
     companion object {
         const val USAGE = "usage: grep [-iw] [-A n] pattern [file ...]"
